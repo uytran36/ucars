@@ -5,6 +5,7 @@ import styles from "./styles.module.less";
 import { getCarBrands } from "../../data/fakeAPI";
 import CarBrandItem from "./Components/CarBrandItem";
 import AddModal from "./Components/AddModal";
+import CarBrandDetail from "./Components/CarBrandDetail";
 
 const items = [
   {
@@ -112,7 +113,9 @@ function CarBrands() {
           <AddModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
         </div>
       ) : (
-        <div>aa</div>
+        <div>
+          <CarBrandDetail setIsClickDetail={setIsClickDetail} detail={detail} />
+        </div>
       )}
     </>
   );
