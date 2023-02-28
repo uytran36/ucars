@@ -1,0 +1,26 @@
+{
+  "name": "ucars",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "antd": "4.24.8",
+    "axios": "^1.3.4",
+    "moment": "^2.29.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "vite-plugin-imp": "^2.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "less": "^4.1.3",
+    "vite": "^4.1.0"
+  }
+}

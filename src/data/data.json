@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Toyota",
+    "description": "Jeep Grand Cherokee",
+    "models": 1200,
+    "updated": "25/12/2022",
+    "status": "active",
+    "logo": "https://i.ibb.co/0V4cWgD/toyota.png"
+  },
+  {
+    "id": 2,
+    "name": "BMW",
+    "description": "Brand description too longgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
+    "models": 800,
+    "updated": "25/12/2022",
+    "status": "inactive",
+    "logo": "https://i.ibb.co/m57Vkfh/BMW.png"
+  },
+  {
+    "id": 3,
+    "name": "MAZDA",
+    "description": "Audi Q7",
+    "models": 620,
+    "updated": "25/12/2022",
+    "status": "active",
+    "logo": "https://i.ibb.co/z8s5xnS/Mazda.png"
+  },
+  {
+    "id": 4,
+    "name": "Hyundai",
+    "description": "Brand description too longgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
+    "models": 4260,
+    "updated": "25/12/2022",
+    "status": "inactive",
+    "logo": "https://i.ibb.co/G2T8p8P/hyundai.png"
+  },
+  {
+    "id": 5,
+    "name": "KIA",
+    "description": "Dodge Charger",
+    "models": 620,
+    "updated": "25/12/2022",
+    "status": "active",
+    "logo": "https://i.ibb.co/qjws8FJ/KIA.png"
+  },
+  {
+    "id": 6,
+    "name": "Nissan",
+    "description": "Brand description too longgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
+    "models": 4260,
+    "updated": "25/12/2022",
+    "status": "inactive",
+    "logo": "https://i.ibb.co/0qR1dPW/nissan.png"
+  }
+]

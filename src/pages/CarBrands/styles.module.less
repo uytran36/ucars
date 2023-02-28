@@ -1,0 +1,56 @@
+.container {
+  margin: 33px 24px 24px 42px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-title {
+  font-family: "Poppins";
+  font-style: normal;
+  display: flex;
+  & > :nth-child(1) {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #2f465f;
+    margin-right: 29px;
+  }
+  & > :nth-child(2) {
+    font-weight: 500;
+  }
+}
+
+.add-btn {
+  background: #0f5edd !important;
+  border-radius: 4px !important;
+  color: #ffffff !important;
+  width: 139px !important;
+  height: 40px !important;
+  font-family: "Poppins";
+  font-style: normal;
+}
+
+.search-input {
+  width: 240px !important;
+  margin-left: 72px !important;
+  background: #f5f5f5 !important;
+  border-radius: 9999px !important;
+
+  & > input {
+    background: #f5f5f5;
+  }
+}
+
+.content {
+  margin-top: 62px;
+  :global {
+    .ant-radio-wrapper {
+      & > :nth-child(2) {
+        width: 100%;
+      }
+    }
+  }
+}
