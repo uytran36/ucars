@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   message,
   Upload,
@@ -21,6 +21,7 @@ import axios from "axios";
 import moment from "moment";
 import styles from "./styles.module.less";
 import { createCarBrand } from "../../../../data/fakeAPI";
+import Status from "../../../../components/Status";
 
 const getBase64 = (img, callback) => {
   const reader = new FileReader();
@@ -43,27 +44,15 @@ const beforeUpload = (file) => {
 const items = [
   {
     key: "1",
-    label: <Status status="active" />,
+    label: <Status status="active" disable />,
     value: "active",
   },
   {
     key: "2",
-    label: <Status status="inactive" />,
+    label: <Status status="inactive" disable />,
     value: "inactive",
   },
 ];
-
-function Status({ status }) {
-  return (
-    <div className={styles[`status-wrapper-${status}`]}>
-      <input type="radio" checked className={styles[`radio-${status}`]} />
-      <span className={styles[`status-${status}`]}>{status}</span>
-      <span className={styles[`icon-${status}`]}>
-        <DownOutlined />
-      </span>
-    </div>
-  );
-}
 
 function AddModal({ isModalOpen, setIsModalOpen }) {
   const [loading, setLoading] = useState(false);
@@ -91,7 +80,7 @@ function AddModal({ isModalOpen, setIsModalOpen }) {
     // });
 
     form.resetFields();
-    setImageUrl('');
+    setImageUrl("");
     setIsModalOpen(false);
   };
 
