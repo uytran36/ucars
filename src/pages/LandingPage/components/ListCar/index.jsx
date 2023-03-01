@@ -14,6 +14,7 @@ import {
 } from "antd";
 import React, { useEffect, useState } from "react";
 import { getCarDetailList } from "../../../../data/fakeAPI";
+import currency from "../../../../assets/currency.png";
 import styles from "./styles.module.less";
 
 function RenderTypeCars({ setTypeUsed }) {
@@ -35,7 +36,7 @@ function RenderTypeCars({ setTypeUsed }) {
   );
 }
 
-function RenderPriceRange() {
+function RenderPriceRange({ setPriceLeft, setPriceRight }) {
   return (
     <div className={styles["price-wrapper"]}>
       <div className={styles["price-title"]}>Price Range</div>
@@ -44,7 +45,7 @@ function RenderPriceRange() {
           <div className={styles["price-item-title"]}>Min</div>
           <div className={styles["price"]}>
             <InputNumber
-              defaultValue={999}
+              defaultValue={10000}
               min={0}
               max={1000000}
               formatter={(value) =>
@@ -52,6 +53,7 @@ function RenderPriceRange() {
               }
               parser={(value) => value.replace(/\w\$\s?|(,*)/g, "")}
               bordered={false}
+              onChange={(value) => setPriceLeft(value)}
             />
           </div>
         </div>
@@ -60,12 +62,13 @@ function RenderPriceRange() {
           <div className={styles["price-item-title"]}>Max</div>
           <div className={styles["price"]}>
             <InputNumber
-              defaultValue={999}
+              defaultValue={100000}
               formatter={(value) =>
                 `S$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               }
               parser={(value) => value.replace(/\w\$\s?|(,*)/g, "")}
               bordered={false}
+              onChange={(value) => setPriceRight(value)}
             />
           </div>
         </div>
@@ -81,65 +84,67 @@ function RenderPriceRange() {
   );
 }
 
-function RenderVehicleType() {
+function RenderVehicleType({ setCount }) {
   return (
     <div className={styles["price-wrapper"]}>
       <div className={styles["price-title"]}>Vehicle Type</div>
       <div className={styles["checkbox-wrapper"]}>
-        <Checkbox.Group>
+        <Checkbox.Group
+          onChange={(checkedValues) => setCount(checkedValues.length)}
+        >
           <Row>
             <Col span={8}>
-              <Checkbox>Bus</Checkbox>
+              <Checkbox value={1}>Bus</Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox>Lorry</Checkbox>
+              <Checkbox value={2}>Lorry</Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox>SUV</Checkbox>
+              <Checkbox value={3}>SUV</Checkbox>
             </Col>
           </Row>
           <Row>
             <Col span={8}>
-              <Checkbox>Classic Car</Checkbox>
+              <Checkbox value={4}>Classic Car</Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox>MPV</Checkbox>
+              <Checkbox value={5}>MPV</Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox>Truck</Checkbox>
-            </Col>
-          </Row>
-          <Row>
-            <Col span={8}>
-              <Checkbox>Coupe</Checkbox>
-            </Col>
-            <Col span={8}>
-              <Checkbox>Pickup</Checkbox>
-            </Col>
-            <Col span={8}>
-              <Checkbox>Van (Passenger)</Checkbox>
+              <Checkbox value={6}>Truck</Checkbox>
             </Col>
           </Row>
           <Row>
             <Col span={8}>
-              <Checkbox>Convertible</Checkbox>
+              <Checkbox value={7}>Coupe</Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox>Sedan</Checkbox>
+              <Checkbox value={8}>Pickup</Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox>Van (Goods)</Checkbox>
+              <Checkbox value={9}>Van (Passenger)</Checkbox>
             </Col>
           </Row>
           <Row>
             <Col span={8}>
-              <Checkbox>Hatchback</Checkbox>
+              <Checkbox value={10}>Convertible</Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox>Sport Car</Checkbox>
+              <Checkbox value={11}>Sedan</Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox>Wagon</Checkbox>
+              <Checkbox value={12}>Van (Goods)</Checkbox>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={8}>
+              <Checkbox value={13}>Hatchback</Checkbox>
+            </Col>
+            <Col span={8}>
+              <Checkbox value={14}>Sport Car</Checkbox>
+            </Col>
+            <Col span={8}>
+              <Checkbox value={15}>Wagon</Checkbox>
             </Col>
           </Row>
         </Checkbox.Group>
@@ -159,6 +164,9 @@ function ListCar() {
   const [typeUsed, setTypeUsed] = useState("New Car ( Authorised Dealer)");
   const [data, setData] = useState([]);
   const [isViewMore, setIsViewMore] = useState(false);
+  const [priceLeft, setPriceLeft] = useState(10000);
+  const [priceRight, setPriceRight] = useState(100000);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -200,32 +208,56 @@ function ListCar() {
               <div>Price Range</div>
             </div>
             <Select
-              value={typeUsed}
+              value={{
+                label: (
+                  <div>
+                    <span>
+                      <Image src={currency} preview={false} /> ${" "}
+                      {`${priceLeft}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    </span>
+                    <span style={{ padding: "0px 18px" }}> - </span>
+                    <span>
+                      <Image src={currency} preview={false} />${" "}
+                      {`${priceRight}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    </span>
+                  </div>
+                ),
+                value: "1",
+              }}
               style={{
                 width: "100%",
                 marginTop: 18,
               }}
               bordered={false}
-              dropdownRender={RenderPriceRange}
+              dropdownRender={() =>
+                RenderPriceRange({ setPriceLeft, setPriceRight })
+              }
               className={styles["select"]}
             />
           </Col>
-          <Col span={7} className={styles["filter-item"]}>
+          <Col span={8} className={styles["filter-item"]}>
             <div className={styles["filter-item-wrapper"]}>
               <div>Vehicle Type</div>
             </div>
             <Select
-              value={typeUsed}
+              value={{
+                label: (
+                  <div>
+                    <span>+{count} More</span>
+                  </div>
+                ),
+                value: "1",
+              }}
               style={{
                 width: "100%",
                 marginTop: 18,
               }}
               bordered={false}
-              dropdownRender={RenderVehicleType}
+              dropdownRender={() => RenderVehicleType({ setCount })}
               className={styles["select"]}
             />
           </Col>
-          <Col span={5} className={styles["filter-item-btn"]}>
+          <Col span={4} className={styles["filter-item-btn"]}>
             <Button className={styles["btn-search"]}>Search</Button>
           </Col>
         </Row>
