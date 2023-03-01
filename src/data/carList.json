@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "img": "https://i.ibb.co/Ydkt1YF/Rectangle-4-1.png",
+    "name": "The Palace",
+    "description": "Lekki,phase 2",
+    "type": "Duplex",
+    "price": "$2,000",
+    "isAd": false
+  },
+  {
+    "id": 2,
+    "img": "https://i.ibb.co/0tSMDN7/Rectangle-4-2.png",
+    "name": "IVY RORY",
+    "description": "Lekki,phase 2",
+    "type": "Duplex",
+    "price": "$2,000",
+    "isAd": false
+  },
+  {
+    "id": 3,
+    "img": "https://i.ibb.co/Dk5yfYd/Rectangle-700.png",
+    "name": "ad",
+    "description": "ad",
+    "type": "ad",
+    "price": "ad",
+    "isAd": true
+  },
+  {
+    "id": 4,
+    "img": "https://i.ibb.co/X2vxVjJ/Rectangle-4.png",
+    "name": "REXONA",
+    "description": "Lekki,phase 2",
+    "type": "Duplex",
+    "price": "$2,000",
+    "isAd": false
+  },
+  {
+    "id": 5,
+    "img": "https://i.ibb.co/Ydkt1YF/Rectangle-4-1.png",
+    "name": "The Palace",
+    "description": "Lekki,phase 2",
+    "type": "Duplex",
+    "price": "$2,000",
+    "isAd": false
+  },
+  {
+    "id": 6,
+    "img": "https://i.ibb.co/0tSMDN7/Rectangle-4-2.png",
+    "name": "IVY RORY",
+    "description": "Lekki,phase 2",
+    "type": "Duplex",
+    "price": "$2,000",
+    "isAd": false
+  }
+]

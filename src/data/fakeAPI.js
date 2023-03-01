@@ -1,8 +1,9 @@
-import carBrands from "./data.json";
+import carBrands from "./carBrands.json";
+import carList from "./carList.json";
+import carDetailList from "./carDetailList.json";
 import fs from "fs";
 
 export function getCarBrands() {
-  console.log(carBrands);
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve({
@@ -35,7 +36,7 @@ export function createCarBrand(brand) {
       });
       let json = JSON.stringify(carBrands);
 
-      fs.writeFile("./data.json", json, "utf8", function (err) {
+      fs.writeFile("./carBrands.json", json, "utf8", function (err) {
         if (err) {
           console.log("An error occured while writing JSON Object to File.");
           reject(err);
@@ -58,6 +59,28 @@ export function updateCarBrand(brand) {
       resolve({
         status: 200,
         data: carBrands,
+      });
+    }, 1000);
+  });
+}
+
+export function getCarList() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({
+        status: 200,
+        data: carList,
+      });
+    }, 1000);
+  });
+}
+
+export function getCarDetailList() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({
+        status: 200,
+        data: carDetailList,
       });
     }, 1000);
   });

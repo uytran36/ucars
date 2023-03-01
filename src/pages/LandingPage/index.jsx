@@ -3,6 +3,11 @@ import { Layout } from "antd";
 import Header from "../../layouts/LandingPage/Header";
 import Footer from "../../layouts/LandingPage/Footer";
 import styles from "./styles.module.less";
+import Cover from "./components/Corver";
+import ListCar from "./components/ListCar";
+import HowItWorks from "./components/HowItWorks";
+import FeatureVehicles from "./components/FeatureVehicles";
+import AskAndInfo from "./components/AskAndInfo";
 
 const { Content } = Layout;
 
@@ -18,7 +23,17 @@ function LandingPage() {
       >
         <Header />
       </Layout.Header>
-      <Content>Content</Content>
+      <Content
+        style={{
+          backgroundColor: "#ffffff",
+        }}
+      >
+        <Cover />
+        <ListCar />
+        <HowItWorks />
+        <FeatureVehicles />
+        <AskAndInfo />
+      </Content>
       <Layout.Footer
         style={{
           backgroundColor: "#ffffff",
