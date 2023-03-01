@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { Menu, Image, Divider, Button } from "antd";
+import { Menu, Image, Divider } from "antd";
 import Icon, {
-  InfoCircleOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
-import logo from "../assets/logo.svg";
+import logo from "../..//assets/logo.svg";
 import styles from "./sidebar.module.less";
-import CarSvg from "../assets/CarSvg";
-import CalendarSvg from "../assets/CalendarSvg.jsx";
+import CarSvg from "../../assets/CarSvg";
+import CalendarSvg from "../../assets/CalendarSvg.jsx";
 
 function getItem(label, key, icon, children, type) {
   return {
