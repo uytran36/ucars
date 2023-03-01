@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Layout } from "antd";
-import Header from "./layouts/Header";
-import Sidebar from "./layouts/Sidebar";
+import Header from "./layouts/CarBrands/Header";
+import Sidebar from "./layouts/CarBrands/Sidebar";
 import CarBrands from "./pages/CarBrands";
 
-const { Footer, Sider, Content } = Layout;
+
+const {  Sider, Content } = Layout;
 
 function App() {
   const [collapsed, setCollapsed] = useState(false);
