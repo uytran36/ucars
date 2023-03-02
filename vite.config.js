@@ -12,7 +12,8 @@ export default defineConfig({
         {
           libName: "antd-mobile",
           libDirectory: "es/components",
-          style: (name) => `antd-mobile/es/components/${name}`,
+          // style: (name) => `antd-mobile/es/components/${name}/index.js`,
+          style: () => null,
         },
         {
           libName: "antd",
