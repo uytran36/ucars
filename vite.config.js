@@ -7,18 +7,32 @@ import vitePluginImp from "vite-plugin-imp";
 export default defineConfig({
   plugins: [
     react(),
-    vitePluginImp({
-      libList: [
-        {
-          libName: "antd",
-          style: (name) => `antd/es/${name}/style`,
-        },
-        {
-          libName: "antd-mobile",
-          style: (name) => `antd/es/components/${name}`,
-        },
-      ],
+    vitePluginImp({ 
+      libList: [ 
+        { 
+          libName: "antd-mobile", 
+          libDirectory: "es/components", 
+          style: () => false, 
+        }, 
+        { 
+          libName: "antd", 
+          libDirectory: "es", 
+          style: (name) => `antd/es/${name}/style`, 
+        }, 
+      ], 
     }),
+    // vitePluginImp({
+    //   libList: [
+    //     {
+    //       libName: "antd",
+    //       style: (name) => `antd/es/${name}/style`,
+    //     },
+    //     {
+    //       libName: "antd-mobile",
+    //       style: (name) => `antd-mobile/es/components/${name}`,
+    //     },
+    //   ],
+    // }),
   ],
   resolve: {
     alias: [
