@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 import { getThemeVariables } from "antd/dist/theme";
 import vitePluginImp from "vite-plugin-imp";
 
@@ -7,32 +7,37 @@ import vitePluginImp from "vite-plugin-imp";
 export default defineConfig({
   plugins: [
     react(),
-    vitePluginImp({ 
-      libList: [ 
-        { 
-          libName: "antd-mobile", 
-          libDirectory: "es/components", 
-          style: () => false, 
-        }, 
-        { 
-          libName: "antd", 
-          libDirectory: "es", 
-          style: (name) => `antd/es/${name}/style`, 
-        }, 
-      ], 
-    }),
     // vitePluginImp({
     //   libList: [
     //     {
-    //       libName: "antd",
-    //       style: (name) => `antd/es/${name}/style`,
+    //       libName: "antd-mobile",
+    //       libDirectory: "es/components",
+    //       // style: (name) => `antd-mobile/es/components/${name}/index.js`,
+    //       style: () => null,
     //     },
     //     {
-    //       libName: "antd-mobile",
-    //       style: (name) => `antd-mobile/es/components/${name}`,
+    //       libName: "antd",
+    //       libDirectory: "es",
+    //       style: (name) => `antd/es/${name}/style`,
     //     },
     //   ],
     // }),
+    vitePluginImp({
+      libList: [
+        {
+          libName: "antd",
+          style: (name) => `antd/es/${name}/style`,
+        },
+        {
+          libName: "antd-mobile",
+          libDirectory: "es/components",
+          style: (name) => {
+            console.log({ name });
+            return `antd-mobile/es/components/${name}/${name}.css`;
+          },
+        },
+      ],
+    }),
   ],
   resolve: {
     alias: [

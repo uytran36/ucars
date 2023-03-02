@@ -4,7 +4,7 @@ import Header from "./layouts/CarBrands/Header";
 import Sidebar from "./layouts/CarBrands/Sidebar";
 import CarBrands from "./pages/CarBrands";
 import CarBrandsMobile from "./pages/CarBrandsMobile";
-import useWindowSize from "./utils/useWindowSize";
+import useWindowSize from "./hooks/useWindowSize";
 
 const { Sider, Content } = Layout;
 

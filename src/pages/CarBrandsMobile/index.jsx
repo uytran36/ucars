@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import {
   NavBar,
   Space,
-  Toast,
   Image,
   SearchBar,
   List,
   Checkbox,
 } from "antd-mobile";
-import { AddOutline, CloseOutline } from "antd-mobile-icons";
+import { AddOutline } from "antd-mobile-icons";
 import searchIcon from "../../assets/search.svg";
 import transfer from "../../assets/transfer.png";
 import { getCarBrands } from "../../data/fakeAPI";
@@ -50,7 +49,7 @@ function CarBrandsMobile() {
     <>
       {!isAdd ? (
         <>
-          <NavBar  right={right} />
+          <NavBar right={right} />
           <div style={{ margin: "0px 16px 0px 16px" }}>
             <div className={styles["header"]}>Car Brand List</div>
             <SearchBar
