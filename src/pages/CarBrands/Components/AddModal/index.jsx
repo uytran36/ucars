@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  message,
   Upload,
   Modal,
   Divider,
@@ -15,31 +14,13 @@ import {
   CloseOutlined,
   LoadingOutlined,
   PlusOutlined,
-  DownOutlined,
 } from "@ant-design/icons";
 import axios from "axios";
 import moment from "moment";
 import styles from "./styles.module.less";
 import { createCarBrand } from "../../../../data/fakeAPI";
 import Status from "../../../../components/Status";
-
-const getBase64 = (img, callback) => {
-  const reader = new FileReader();
-  reader.addEventListener("load", () => callback(reader.result));
-  reader.readAsDataURL(img);
-};
-
-const beforeUpload = (file) => {
-  const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
-  if (!isJpgOrPng) {
-    message.error("You can only upload JPG/PNG file!");
-  }
-  const isLt2M = file.size / 1024 / 1024 < 2;
-  if (!isLt2M) {
-    message.error("Image must smaller than 2MB!");
-  }
-  return isJpgOrPng && isLt2M;
-};
+import { beforeUpload, getBase64 } from "../../../../utils/upload";
 
 const items = [
   {
